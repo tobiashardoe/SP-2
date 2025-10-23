@@ -1,10 +1,9 @@
-public class PrintedBook extends Title{
+public class PrintedBook extends PhysicalTitle{
     private int pages;
-    private int copies;
+
 
     public PrintedBook(String title, String literatureType, int copies, int pages) {
-        super(title, literatureType);
-        this.copies = copies;
+        super(title, literatureType, copies);
         this.pages = pages;
     }
 

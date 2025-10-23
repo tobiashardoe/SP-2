@@ -31,9 +31,42 @@ class PrintedBook{
 + PrintedBook (String title, String literatureType, int copies, int pages)
 # double calculatePoints()
 }
+abstract class NetTitle{
+- int availability
+- int rach
+-int use
++ NetTitle(String title, String literatureType, int availability, int reach, int use)
+# double getPseudoCopies()
+- int getUseFactor()
+}
+abstract class PhysicalTitle{
+# int copies
++ PhysicalTitle(String title, String literatureType, int copies)
+
+}
+class EBook{
+- int characters
+- boolean illustrated
++ Ebook(String title, String literatureType, int availability, int reach, int use, int characters, boolean illustrated)
+- double calculatePages()
+# double calculatePoints()
+}
+class EAudioBook{
+- int durationInMinutes
++ EAudioBook(String title, String literatureType, int availability, int reach, int use, int durationInMinutes)
+}
+interface IAudioBook{
+}
 Author*--Title
-Title<|--AudioBook
-Title<|--PrintedBook
+Title<|--PhysicalTitle
+Title<|--NetTitle
+NetTitle<|--EBook
+NetTitle<|--EAudioBook
+PhysicalTitle<|--AudioBook
+PhysicalTitle<|--PrintedBook
+IAudioBook<|..AudioBook
+IAudioBook<|..EAudioBook
+
 
 
 @enduml
